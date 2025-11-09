@@ -18,3 +18,388 @@ h1,
 h2 {
   color: #333;
 }
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 8%;
+  background-color: #fff;
+}
+
+.hero-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.hero .text {
+  flex: 1 1 45%;
+}
+
+.hero .text h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero .text p {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.btn.primary {
+  background-color: #111;
+  color: #fff;
+}
+
+.btn.primary:hover {
+  background-color: #333;
+}
+
+.btn.secondary {
+  border: 2px solid #111;
+  color: #111;
+}
+
+.btn.secondary:hover {
+  background-color: #111;
+  color: #fff;
+}
+
+.hero .image {
+  flex: 1 1 45%;
+  text-align: center;
+}
+
+.hero .image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   WHY CHOOSE US SECTION
+========================= */
+.why-choose-us {
+  background-color: #f8f8f8;
+  padding: 4rem 8%;
+}
+
+.why-choose-us .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 3rem;
+}
+
+.why-choose-us .text {
+  flex: 1 1 45%;
+}
+
+.why-choose-us .text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #111;
+}
+
+.why-choose-us .text p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.why-choose-us .text ul {
+  list-style: none;
+  padding: 0;
+}
+
+.why-choose-us .text li {
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.why-choose-us .media {
+  flex: 1 1 45%;
+  text-align: center;
+}
+
+.why-choose-us .media img,
+.why-choose-us .media video {
+  max-width: 100%;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* =========================
+   VALUE PROPOSITION SECTION
+========================= */
+.value-proposition {
+  background-color: #fff;
+  padding: 4rem 8%;
+  text-align: center;
+}
+
+.value-proposition h2 {
+  font-size: 2rem;
+  margin-bottom: 2.5rem;
+  color: #111;
+}
+
+.value-proposition .cards {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.value-proposition .card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  flex: 1 1 280px;
+  max-width: 320px;
+  transition: all 0.3s ease;
+}
+
+.value-proposition .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.value-proposition .card img {
+  width: 60px;
+  margin-bottom: 1rem;
+}
+
+.value-proposition .card h3 {
+  font-size: 1.25rem;
+  color: #1e1e8f; /* Blue accent like your Figma */
+  margin-bottom: 0.75rem;
+}
+
+.value-proposition .card p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* =========================
+   USE CASES SECTION
+========================= */
+.use-cases {
+  background-color: #f8f8f8;
+  padding: 4rem 8%;
+}
+
+.use-cases .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.use-cases .text {
+  flex: 1 1 45%;
+}
+
+.use-cases .text h2 {
+  font-size: 2rem;
+  color: #111;
+  margin-bottom: 1rem;
+}
+
+.use-cases .text p {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.use-cases .buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.use-cases .btn.primary {
+  background-color: #f47b20; /* Orange like in Figma */
+  color: #fff;
+  border: none;
+}
+
+.use-cases .btn.primary:hover {
+  background-color: #e46a10;
+}
+
+.use-cases .btn.secondary {
+  border: 2px solid #111;
+  color: #111;
+}
+
+.use-cases .btn.secondary:hover {
+  background-color: #111;
+  color: #fff;
+}
+
+.use-cases .media {
+  flex: 1 1 45%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.use-cases .video-box {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 16 / 9;
+  background-color: #1e1e8f;
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.use-cases .play-icon {
+  font-size: 3rem;
+  color: #fff;
+  opacity: 0.9;
+  transition: 0.3s;
+}
+
+.use-cases .video-box:hover .play-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* =========================
+   OUR MIXING MACHINES SECTION
+========================= */
+.mixing-machines {
+  background-color: #fff;
+  padding: 4rem 8%;
+  text-align: center;
+}
+
+.mixing-machines h2 {
+  font-size: 2rem;
+  color: #111;
+  margin-bottom: 0.5rem;
+}
+
+.mixing-machines .intro {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 3rem;
+}
+
+.machine-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.machine-card {
+  background-color: #fff;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+  max-width: 320px;
+  flex: 1 1 280px;
+  transition: all 0.3s ease;
+}
+
+.machine-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.machine-card img {
+  width: 100%;
+  height: auto;
+  margin-bottom: 1rem;
+  border-radius: 6px;
+}
+
+.machine-card h3 {
+  color: #1e1e8f;
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.machine-card p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* =========================
+   PRICING / RESOURCE / INTERACTION GRID
+========================= */
+.info-grid {
+  background-color: #f8f8f8;
+  padding: 4rem 8%;
+}
+
+.info-grid .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.grid-column {
+  flex: 1 1 30%;
+  min-width: 280px;
+}
+
+.grid-column h2 {
+  font-size: 1.5rem;
+  color: #111;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #1e1e8f;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+.info-item {
+  margin-bottom: 1.5rem;
+}
+
+.info-item h3 {
+  font-size: 1.1rem;
+  color: #1e1e8f;
+  margin-bottom: 0.4rem;
+}
+
+.info-item p {
+  font-size: 0.95rem;
+  color: #555;
+  line-height: 1.5;
+}
