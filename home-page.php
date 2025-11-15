@@ -121,20 +121,30 @@ get_header();
 <!-- ================================
      USE CASES (LARGE ROTATOR)
 ================================ -->
+
 <section class="usecases-section">
   <h2 class="section-title">Use Cases</h2>
 
-  <div class="usecase-large-card" id="usecase-large-card"></div>
+  <div class="usecases-rotator">
+
+      <!-- Layer 1 -->
+      <div class="usecase-large-card" id="usecase-card-a"></div>
+
+      <!-- Layer 2 -->
+      <div class="usecase-large-card" id="usecase-card-b"></div>
+
+  </div>
 </section>
 
 
 <!-- ================================
-     MACHINES (3 CARD ROTATOR)
+     MACHINES (SLIDING CAROUSEL)
 ================================ -->
 <section class="machines-section">
   <h2 class="section-title">Our Machines</h2>
 
-  <div class="machines-rotator" id="machinesRotator">
+  <div class="machines-slider-wrapper">
+    <div class="machines-slider" id="machinesSlider">
 
       <?php 
       $machines = [
@@ -153,9 +163,9 @@ get_header();
           </div>
       <?php endforeach; ?>
 
+    </div>
   </div>
 </section>
-
 
 
 

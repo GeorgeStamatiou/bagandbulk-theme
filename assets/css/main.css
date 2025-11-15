@@ -723,27 +723,47 @@ p {
 }
 
 /* ================================
-   USE CASES
+   USE CASES — ONE WIDE CARD
 ================================ */
+
 .usecases-section {
-  padding: 4rem 8%;
+  padding: 1rem;
   text-align: center;
 }
 
-.usecase-large-card {
+.usecases-rotator {
+  position: relative;
   width: 100%;
-  max-width: 650px;
+  max-width: 900px; /* wide single card */
   margin: 2rem auto 0;
-  padding: 2rem;
+  min-height: 400px; /* enough space for bigger image */
+}
+
+/* The two stacked cards (A & B) */
+.usecase-large-card {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem; /* cleaner spacing */
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-  transition: opacity 0.3s ease;
+
+  opacity: 0; /* start hidden */
+  transition: opacity 0.4s ease-in-out;
 }
 
+.usecase-large-card.active {
+  opacity: 1; /* only active one visible */
+}
+
+/* Image — make it fill the card nicely */
 .usecase-large-card img {
   width: 100%;
-  border-radius: 12px;
+  height: 300px; /* nice tall rectangle */
+  object-fit: cover;
+  border-radius: 16px;
   margin-bottom: 1rem;
 }
 
@@ -759,38 +779,48 @@ p {
 }
 
 /* ================================
-   MACHINES
+   MACHINES — SLIDING CAROUSEL
 ================================ */
+
 .machines-section {
   padding: 4rem 8%;
   text-align: center;
 }
 
-.machines-rotator {
+/* Outer wrapper (does not move) */
+.machines-slider-wrapper {
+  overflow: hidden;
   width: 100%;
-  position: relative;
-  min-height: 350px;
+  margin-top: 2rem;
 }
 
+/* Track that SLIDES left/right */
+.machines-slider {
+  display: flex;
+  gap: 2rem;
+  transition: transform 0.7s ease-in-out;
+}
+
+/* Each machine card */
 .machine-card {
-  display: none; /* JS will show exactly 3 */
-  width: 30%;
+  flex: 0 0 calc(33.333% - 2rem); /* Exactly 3 cards visible */
   background: #fff;
-  padding: 1.8rem;
-  border-radius: 14px;
-  margin: 1rem auto;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  padding: 1.5rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
   text-align: left;
+  transition: 0.3s ease;
 }
 
 .machine-card img {
   width: 100%;
-  border-radius: 12px;
-  margin-bottom: 1rem;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
 .machine-card h3 {
-  margin: 0;
+  margin: 0.8rem 0 0;
   font-size: 1.3rem;
   color: var(--primary-blue);
 }
@@ -799,6 +829,24 @@ p {
   margin-top: 0.5rem;
   color: #444;
   font-size: 0.95rem;
+}
+
+.machine-card:hover {
+  background: #fff;
+  transform: translateY(-4px);
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 900px) {
+  .machine-card {
+    flex: 0 0 calc(50% - 2rem); /* 2 cards on mobile */
+  }
+}
+
+@media (max-width: 600px) {
+  .machine-card {
+    flex: 0 0 100%; /* 1 card on small screens */
+  }
 }
 
 /* ---------------------------------------------------------
