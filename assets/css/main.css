@@ -153,54 +153,316 @@ p {
    HEADER
 --------------------------------------------------------- */
 
-header {
+.site-header {
   background: #ffffff;
-  padding: 1.5rem 0;
   border-bottom: 1px solid var(--border-grey);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+  width: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 999;
 }
 
-header .container {
+.header-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.2rem 8%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-nav ul {
+.logo img {
+  height: 50px;
+  width: auto;
+}
+
+/* Desktop Nav */
+.main-nav .nav-menu {
+  display: flex;
   list-style: none;
+  gap: 2rem;
+}
+
+.main-nav .nav-menu li a {
+  color: var(--text-dark);
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.main-nav .nav-menu li a:hover {
+  color: var(--primary-blue);
+}
+
+/* MOBILE MENU ICON */
+.mobile-menu-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+}
+
+.mobile-menu-toggle span {
+  width: 28px;
+  height: 3px;
+  background: var(--text-dark);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+}
+
+/* MOBILE NAV PANEL */
+.mobile-nav {
+  display: none;
+  background: #fff;
+  width: 100%;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  padding: 1.5rem 8%;
+  border-bottom: 1px solid var(--border-grey);
+}
+
+.mobile-nav-menu {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.mobile-nav-menu li a {
+  text-decoration: none;
+  font-size: 1.1rem;
+  color: var(--text-dark);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .main-nav {
+    display: none;
+  }
+
+  .mobile-menu-toggle {
+    display: flex;
+  }
+}
+
+/* Fix WordPress default menu wrappers */
+.main-nav > div,
+.mobile-nav > div {
+  display: flex;
+}
+
+.main-nav > div > ul {
   display: flex;
   gap: 2rem;
 }
 
-nav a {
-  color: var(--text-dark);
-  font-weight: 500;
-  text-decoration: none;
-  transition: 0.2s;
+.nav-menu,
+.mobile-nav-menu,
+.main-nav ul,
+.mobile-nav ul {
+  list-style: none !important;
+  margin: 0;
+  padding: 0;
 }
 
-nav a:hover {
+.nav-menu li,
+.mobile-nav-menu li {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: 0.25s ease;
+}
+
+.nav-menu li a:hover {
   color: var(--primary-blue);
+}
+
+/* Header container fix */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+/* CTA BUTTON IN HEADER */
+.header-cta-btn {
+  background: var(--accent-orange);
+  color: #fff !important;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  margin-left: 2rem;
+  transition: 0.25s ease;
+  white-space: nowrap;
+}
+
+.header-cta-btn:hover {
+  background: #e46a10;
+}
+
+@media (max-width: 900px) {
+  .header-cta-btn {
+    display: none;
+  }
+}
+
+.mobile-cta-btn {
+  margin-top: 1.5rem;
+  display: block;
+  background: var(--accent-orange);
+  color: #fff !important;
+  padding: 0.9rem;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+/* Make menu + button sit in a row */
+.main-nav .nav-inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* WP default wrapper fix */
+.main-nav .nav-inner > div {
+  display: flex;
+}
+
+.main-nav .nav-inner > div > ul {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* CTA Button */
+.header-cta-btn {
+  background: var(--accent-orange);
+  color: #fff !important;
+  padding: 0.7rem 1.4rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: 0.25s ease;
+}
+
+.header-cta-btn:hover {
+  background: #e46a10;
 }
 
 /* ---------------------------------------------------------
    FOOTER
 --------------------------------------------------------- */
 
-footer {
-  background: var(--primary-blue);
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+.footer {
+  background: #165a92; /* deep brand blue */
   color: #fff;
-  padding: 3rem 0;
+  padding: 4rem 8% 2rem;
+  margin-top: 4rem;
 }
 
-footer a {
-  color: #fff;
-  opacity: 0.8;
+.footer-container {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr 1fr 1fr;
+  gap: 3rem;
+}
+
+.footer h3,
+.footer h4 {
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.footer-brand p {
+  max-width: 260px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-col ul li a {
+  color: rgba(255, 255, 255, 0.85);
   text-decoration: none;
+  transition: 0.2s;
 }
 
-footer a:hover {
-  opacity: 1;
+.footer-col ul li a:hover {
+  color: #fff;
+  padding-left: 4px;
+}
+
+/* SOCIALS */
+.footer-socials {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-socials li {
+  margin-bottom: 0.6rem;
+}
+
+.footer-socials li a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+  font-size: 1rem;
+  display: inline-block;
+  transition: 0.2s ease;
+}
+
+.footer-socials li a:hover {
+  color: #fff;
+  padding-left: 4px;
+}
+
+/* FOOTER BOTTOM */
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 2rem;
+}
+
+.footer-bottom p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.9rem;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 900px) {
+  .footer-container {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* ---------------------------------------------------------
@@ -412,86 +674,131 @@ footer a:hover {
 }
 
 /* ---------------------------------------------------------
-   VALUE PROPOSITION + USE CASES SECTION
+   VALUE PROPOSITION (4 Cards Full Width)
 --------------------------------------------------------- */
-
-.value-usecases {
+.value-prop {
   padding: 4rem 8%;
   background: #fff;
 }
 
-.value-usecases .container {
-  display: flex;
-  gap: 4rem;
-  align-items: flex-start;
+.value-prop .container {
+  max-width: 1200px;
+  margin: auto;
 }
 
-/* LEFT + RIGHT COLUMNS */
-.value-left,
-.usecases-right {
-  flex: 1;
+.value-prop h2 {
+  margin-bottom: 2rem;
+  font-size: 2rem;
 }
 
-/* VALUE GRID (4 cards, 2x2) */
 .value-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  margin-top: 2rem;
+  gap: 1.8rem;
 }
 
-/* CARD BASE STYLES (used for all cards incl. rotating card) */
-.value-card,
-.usecase-card {
+.value-card {
   background: #f8f8f8;
   padding: 1.8rem;
   border-radius: 12px;
   border: 1px solid #ddd;
   transition: 0.3s ease;
-  min-height: 420px; /* ENSURED ALL CARDS MATCH HEIGHT */
+  min-height: 420px;
   display: flex;
   flex-direction: column;
 }
 
-/* Hover effect for value cards (not rotating) */
 .value-card:hover {
   background: #fff;
   transform: translateY(-4px);
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
 
-/* CARD IMAGES */
-.value-card img,
-.usecase-card img {
+.value-card img {
   width: 100%;
-  height: 180px; /* supports 400x260 ratio */
+  height: 180px;
   object-fit: cover;
   border-radius: 8px;
   margin-bottom: 1rem;
 }
 
-/* USE CASES COLUMN */
-.usecases-right {
+/* ================================
+   USE CASES
+================================ */
+.usecases-section {
+  padding: 4rem 8%;
+  text-align: center;
+}
+
+.usecase-large-card {
+  width: 100%;
+  max-width: 650px;
+  margin: 2rem auto 0;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  transition: opacity 0.3s ease;
+}
+
+.usecase-large-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
+}
+
+.usecase-large-card h3 {
+  color: var(--primary-blue);
+  font-size: 1.4rem;
+  margin-top: 1rem;
+}
+
+.usecase-large-card p {
   margin-top: 0.5rem;
+  color: #444;
 }
 
-.usecase-card {
-  margin-top: 2rem;
-  transition: opacity 0.4s ease;
+/* ================================
+   MACHINES
+================================ */
+.machines-section {
+  padding: 4rem 8%;
+  text-align: center;
 }
 
-/* ---------------------------------------------------------
-   MIXING MACHINES
---------------------------------------------------------- */
+.machines-rotator {
+  width: 100%;
+  position: relative;
+  min-height: 350px;
+}
 
-.mixing-machines .intro {
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  color: var(--text-muted);
+.machine-card {
+  display: none; /* JS will show exactly 3 */
+  width: 30%;
+  background: #fff;
+  padding: 1.8rem;
+  border-radius: 14px;
+  margin: 1rem auto;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+  text-align: left;
+}
+
+.machine-card img {
+  width: 100%;
+  border-radius: 12px;
+  margin-bottom: 1rem;
 }
 
 .machine-card h3 {
+  margin: 0;
+  font-size: 1.3rem;
   color: var(--primary-blue);
+}
+
+.machine-card p {
+  margin-top: 0.5rem;
+  color: #444;
+  font-size: 0.95rem;
 }
 
 /* ---------------------------------------------------------

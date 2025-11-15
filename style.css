@@ -1,5 +1,5 @@
 /*
-Theme Name: Bag and Bulk Theme
+Theme Name: Bag and Bulk
 Theme URI: https://bagandbulk.co.za
 Author: George
 Description: Custom WordPress theme for Bag & Bulk Holdings.
@@ -8,7 +8,8 @@ Text Domain: bagandbulk
 */
 
 /* ---------------------------------------------------------
-   BASE THEME RESET
+   BASE THEME RESET / GLOBALS
+   (Keep this file minimal — real design lives in main.css)
 --------------------------------------------------------- */
 
 html,
@@ -24,17 +25,15 @@ body {
   line-height: 1.6;
 }
 
-/* Allow block editor full width */
-.wp-block {
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
 img {
   max-width: 100%;
   height: auto;
   display: block;
 }
 
-/* Keep style.css minimal — all design lives in main.css */
+/* Gutenberg block width */
+.wp-block {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}

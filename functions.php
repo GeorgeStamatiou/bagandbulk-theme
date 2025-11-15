@@ -1,12 +1,32 @@
 <?php
 
 // ----------------------
-// STYLES
+// THEME SETUP
+// ----------------------
+function bagandbulk_theme_setup() {
+    add_theme_support('title-tag');
+    add_theme_support('post-thumbnails');
+    add_theme_support('menus');
+
+    register_nav_menus([
+        'primary' => __('Primary Menu', 'bagandbulk'),
+    ]);
+}
+add_action('after_setup_theme', 'bagandbulk_theme_setup');
+
+
+// ----------------------
+// ENQUEUE STYLES
 // ----------------------
 function bagandbulk_enqueue_styles() {
 
-    // Load root style.css
-    wp_enqueue_style('bagandbulk-style', get_stylesheet_uri(), [], '1.0');
+    // Load root style.css (the WordPress required theme stylesheet)
+    wp_enqueue_style(
+        'bagandbulk-style',
+        get_stylesheet_uri(),
+        [],
+        '1.0'
+    );
 
     // Google Fonts
     wp_enqueue_style(
@@ -16,7 +36,7 @@ function bagandbulk_enqueue_styles() {
         null
     );
 
-    // Main custom stylesheet (loads last)
+    // Main custom stylesheet inside /assets/css/main.css
     wp_enqueue_style(
         'bagandbulk-main',
         get_template_directory_uri() . '/assets/css/main.css',
@@ -29,30 +49,23 @@ add_action('wp_enqueue_scripts', 'bagandbulk_enqueue_styles');
 
 
 // ----------------------
-// THEME SETUP
+// ENQUEUE SCRIPTS (JS)
 // ----------------------
-function bagandbulk_setup() {
-    add_theme_support('title-tag');
-    add_theme_support('post-thumbnails');
+function bagandbulk_enqueue_scripts() {
 
-    register_nav_menus([
-        'primary' => __('Primary Menu', 'bagandbulk'),
-    ]);
-}
-add_action('after_setup_theme', 'bagandbulk_setup');
-
-
-// ----------------------
-// SCRIPTS (JS)
-// ----------------------
-function bbh_enqueue_scripts() {
+    echo "<!-- JS ENQUEUE RUNNING -->";
 
     wp_enqueue_script(
-        'bbh-script',
+        'bagandbulk-script',
         get_template_directory_uri() . '/assets/js/script.js',
-        array(), 
-        null, 
-        true // Load in footer
+        array(),
+        time(), // bust caching
+        true
     );
+
+    wp_localize_script('bagandbulk-script', 'bagbulkTheme', array(
+        'themeUrl' => get_template_directory_uri()
+    ));
 }
-add_action('wp_enqueue_scripts', 'bbh_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'bagandbulk_enqueue_scripts');
+

@@ -26,7 +26,7 @@ get_header();
     </div>
 
     <div class="hero-right">
-      <img src="/wp-content/uploads/hero-bulkbag.png" 
+      <img src="/wp-content/uploads/hero-bulkbag.jpg" 
            alt="Industrial Bulk Bag" 
            class="hero-image" />
     </div>
@@ -83,89 +83,80 @@ get_header();
 <!-- ================================
      VALUE PROPOSITION
 ================================ -->
-<section class="value-usecases">
+<section class="value-prop">
   <div class="container">
 
-    <!-- LEFT: VALUE PROPOSITION -->
-    <div class="value-left">
-      <h2>Value Proposition</h2>
+    <h2>Value Proposition</h2>
 
-      <div class="value-grid">
+    <div class="value-grid">
 
-        <!-- Card 1 -->
-        <div class="value-card">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/value-placeholder.jpg" alt="Value 1">
-          <h3>High Efficiency</h3>
-          <p>Reduce downtime and maximise throughput with our advanced handling systems.</p>
-        </div>
-
-        <div class="value-card">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/value-placeholder.jpg" alt="Value 2">
-          <h3>Cost Effective</h3>
-          <p>Lower operational costs by using best-in-class machinery and modular builds.</p>
-        </div>
-
-        <div class="value-card">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/value-placeholder.jpg" alt="Value 3">
-          <h3>Scalable</h3>
-          <p>Start small and expand your system as production demand grows.</p>
-        </div>
-
-        <div class="value-card">
-          <img src="<?php echo get_template_directory_uri(); ?>/assets/images/value-placeholder.jpg" alt="Value 4">
-          <h3>Reliable Support</h3>
-          <p>Full after-sales support with maintenance plans and technical assistance.</p>
-        </div>
-
-
+      <div class="value-card">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/value1.jpg" alt="">
+        <h3>High Efficiency</h3>
+        <p>Reduce downtime and maximise throughput.</p>
       </div>
-    </div>
 
-    <!-- RIGHT: USE CASES -->
-    <div class="usecases-right">
-      <h2>Use Cases</h2>
-
-      <div id="usecase-card" class="usecase-card">
-        <!-- JS populates this -->
+      <div class="value-card">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/value2.jpg" alt="">
+        <h3>Cost Effective</h3>
+        <p>Lower operational costs with modular designs.</p>
       </div>
-    </div>
 
+      <div class="value-card">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/value3.jpg" alt="">
+        <h3>Scalable</h3>
+        <p>Start small and expand as demand increases.</p>
+      </div>
+
+      <div class="value-card">
+        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/value4.jpg" alt="">
+        <h3>Reliable Support</h3>
+        <p>After-sales support and technical assistance.</p>
+      </div>
+
+    </div>
   </div>
+</section>
+
+<!-- ================================
+     USE CASES (LARGE ROTATOR)
+================================ -->
+<section class="usecases-section">
+  <h2 class="section-title">Use Cases</h2>
+
+  <div class="usecase-large-card" id="usecase-large-card"></div>
 </section>
 
 
 <!-- ================================
-     MACHINES (1 Row + Button)
+     MACHINES (3 CARD ROTATOR)
 ================================ -->
-<section class="mixing-machines section">
-  <div class="container">
+<section class="machines-section">
+  <h2 class="section-title">Our Machines</h2>
 
-    <h2>Machines</h2>
+  <div class="machines-rotator" id="machinesRotator">
 
-    <div class="machine-grid" style="margin-top:2rem;">
-      <div class="machine-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/drum-mixer.png" alt="">
-        <h3>Rotating Drum Mixer</h3>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-      </div>
-      <div class="machine-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ribbon-blender.png" alt="">
-        <h3>Ribbon Blender</h3>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-      </div>
-      <div class="machine-card">
-        <img src="<?php echo get_template_directory_uri(); ?>/assets/images/paddle-mixer.png" alt="">
-        <h3>Paddle Mixer</h3>
-        <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
-      </div>
-    </div>
+      <?php 
+      $machines = [
+          ["title" => "Machine 1", "desc" => "High-speed granule filling machine.", "img" => "/assets/images/machine1.jpg"],
+          ["title" => "Machine 2", "desc" => "Automatic weighing and packaging.", "img" => "/assets/images/machine2.jpg"],
+          ["title" => "Machine 3", "desc" => "Bulk-to-bag conversion system.", "img" => "/assets/images/machine3.jpg"],
+          ["title" => "Machine 4", "desc" => "Advanced palletizing robot.", "img" => "/assets/images/machine4.jpg"],
+          ["title" => "Machine 5", "desc" => "Industrial sorter for grains & pulses.", "img" => "/assets/images/machine5.jpg"],
+      ];
 
-    <div style="margin-top:2rem; text-align:center;">
-      <a href="#" class="btn btn-primary">Build Your Machine</a>
-    </div>
+      foreach ($machines as $m): ?>
+          <div class="machine-card">
+              <img src="<?php echo get_template_directory_uri() . $m['img']; ?>">
+              <h3><?php echo $m['title']; ?></h3>
+              <p><?php echo $m['desc']; ?></p>
+          </div>
+      <?php endforeach; ?>
 
   </div>
 </section>
+
+
 
 
 <!-- ================================

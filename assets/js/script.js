@@ -1,47 +1,84 @@
-const useCases = [
-  {
-    title: "Manufacturing Plants",
-    text: "Automate bag movement, filling, and palletizing for higher output.",
-    image: "/wp-content/themes/your-theme/assets/images/usecase1.jpg"
-  },
-  {
-    title: "Warehousing",
-    text: "Improve workflow efficiency with custom conveyor and lift systems.",
-    image: "/wp-content/themes/your-theme/assets/images/usecase2.jpg"
-  },
-  {
-    title: "Agriculture & Bulk Goods",
-    text: "Transport and store grain, feed, fertiliser, and raw materials safely.",
-    image: "/wp-content/themes/your-theme/assets/images/usecase3.jpg"
-  },
-  {
-    title: "Recycling Facilities",
-    text: "Sort and move materials faster with rugged conveyor systems.",
-    image: "/wp-content/themes/your-theme/assets/images/usecase4.jpg"
-  }
-];
+/* ==========================
+   USE CASE ROTATOR
+========================== */
+document.addEventListener("DOMContentLoaded", function () {
 
-let index = 0;
-const card = document.getElementById("usecase-card");
+    const largeCard = document.getElementById("usecase-large-card");
+    if (!largeCard) {
+        console.log("❌ usecase-large-card NOT FOUND");
+        return;
+    }
 
-function updateUseCase() {
-  if (!card) return;
+    const useCases = [
+        {
+            title: "Manufacturing Plants",
+            text: "Automate bag movement, filling, and palletizing for higher output.",
+            image: bagbulkTheme.themeUrl + "/assets/images/usecase1.jpg"
+        },
+        {
+            title: "Warehousing",
+            text: "Improve workflow efficiency with conveyor and lift systems.",
+            image: bagbulkTheme.themeUrl + "/assets/images/usecase2.jpg"
+        },
+        {
+            title: "Agriculture & Bulk Goods",
+            text: "Transport and store grain, feed, and raw materials safely.",
+            image: bagbulkTheme.themeUrl + "/assets/images/usecase3.jpg"
+        },
+        {
+            title: "Recycling Facilities",
+            text: "Sort and move materials faster with rugged systems.",
+            image: bagbulkTheme.themeUrl + "/assets/images/usecase4.jpg"
+        }
+    ];
 
-  card.style.opacity = 0;
+    let i = 0;
 
-  setTimeout(() => {
-    card.innerHTML = `
-      <img src="${useCases[index].image}" alt="${useCases[index].title}">
-      <h3>${useCases[index].title}</h3>
-      <p>${useCases[index].text}</p>
-    `;
-    card.style.opacity = 1;
-  }, 300);
+    function rotateUseCases() {
+        largeCard.style.opacity = 0;
 
-  index = (index + 1) % useCases.length;
-}
+        setTimeout(() => {
+            largeCard.innerHTML = `
+                <img src="${useCases[i].image}" />
+                <h3>${useCases[i].title}</h3>
+                <p>${useCases[i].text}</p>
+            `;
+            largeCard.style.opacity = 1;
+        }, 300);
 
-document.addEventListener("DOMContentLoaded", () => {
-  updateUseCase();
-  setInterval(updateUseCase, 4000);
+        i = (i + 1) % useCases.length;
+    }
+
+    rotateUseCases();
+    setInterval(rotateUseCases, 4000);
+});
+
+
+/* ==========================
+   MACHINE ROTATOR (3 at a time)
+========================== */
+document.addEventListener("DOMContentLoaded", function () {
+
+    const rotator = document.getElementById("machinesRotator");
+    if (!rotator) {
+        console.log("❌ machinesRotator NOT FOUND");
+        return;
+    }
+
+    const cards = Array.from(rotator.children);
+    let index = 0;
+
+    function showThree() {
+        cards.forEach(card => card.style.display = "none");
+
+        for (let j = 0; j < 3; j++) {
+            const idx = (index + j) % cards.length;
+            cards[idx].style.display = "block";
+        }
+
+        index = (index + 3) % cards.length;
+    }
+
+    showThree();
+    setInterval(showThree, 3500);
 });
