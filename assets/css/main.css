@@ -156,9 +156,11 @@ p {
 .site-header {
   background: #ffffff;
   border-bottom: 1px solid var(--border-grey);
+  position: fixed;
   width: 100%;
   position: sticky;
   top: 0;
+  left: 0;
   z-index: 999;
 }
 
@@ -361,9 +363,16 @@ p {
   background: #e46a10;
 }
 
-/* ---------------------------------------------------------
-   FOOTER
---------------------------------------------------------- */
+/* Fix header position when WP admin bar is shown */
+body.admin-bar .site-header {
+  top: 32px;
+}
+
+@media (max-width: 782px) {
+  body.admin-bar .site-header {
+    top: 46px;
+  }
+}
 
 /* ---------------------------------------------------------
    FOOTER
@@ -862,4 +871,398 @@ p {
   display: inline-block;
   padding-bottom: 0.2rem;
   margin-bottom: 1rem;
+}
+
+/* ---------------------------------------------------------
+   RFQ FORM SECTION
+--------------------------------------------------------- */
+
+.rfq-container {
+  padding: 4rem 8%;
+}
+
+.back-link {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  text-decoration: none;
+}
+
+.rfq-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.rfq-subtitle {
+  margin-bottom: 2rem;
+  color: #666;
+}
+
+.rfq-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+}
+
+.rfq-card {
+  background: #fff;
+  padding: 1.8rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+
+.machine-tabs {
+  display: flex;
+  background: var(--light-blue);
+  padding: 0.5rem;
+  border-radius: 10px;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 0.8rem;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 8px;
+}
+
+.tab-btn.active {
+  background: #fff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+.model-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.model-card {
+  padding: 1.3rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.25s;
+}
+
+.model-card.active,
+.model-card:hover {
+  border-color: var(--primary-blue);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.summary-box {
+  padding: 1.5rem;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+}
+
+.rfq-form input,
+.rfq-form textarea {
+  width: 100%;
+  padding: 0.9rem;
+  margin: 0.6rem 0 1.3rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 1rem;
+  background: var(--primary-blue);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.submit-btn:hover {
+  background: #222a8a;
+}
+
+.machine-illustration img {
+  width: 100%;
+}
+
+/* ---------------------------------------------------------
+   GLOBAL PAGE STYLES (Shared across About/Services/Contact)
+--------------------------------------------------------- */
+
+.page-hero {
+  padding: 6rem 8%;
+  background: #fff;
+  text-align: center;
+  border-bottom: 1px solid var(--border-grey);
+}
+
+.page-hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primary-blue);
+}
+
+.page-hero .subtitle {
+  font-size: 1.2rem;
+  color: var(--text-muted);
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ---------------------------------------------------------
+   ABOUT PAGE
+--------------------------------------------------------- */
+
+.about-intro {
+  padding: 5rem 0;
+}
+
+.about-grid {
+  display: flex;
+  align-items: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.about-text {
+  flex: 1;
+}
+
+.about-text h2 {
+  font-size: 2rem;
+  color: var(--primary-blue);
+  margin-bottom: 1rem;
+}
+
+.about-text p {
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  color: var(--text-dark);
+}
+
+.about-image {
+  flex: 1;
+  text-align: center;
+}
+
+.about-image img {
+  width: 100%;
+  max-width: 520px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* About – Values Section */
+
+.about-values {
+  background: var(--soft-grey);
+  padding: 5rem 0;
+  border-top: 1px solid var(--border-grey);
+}
+
+.about-values h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: var(--primary-blue);
+  margin-bottom: 2.5rem;
+}
+
+.values-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.value-card {
+  background: #fff;
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-grey);
+  box-shadow: var(--shadow);
+  text-align: center;
+  transition: 0.3s ease;
+}
+
+.value-card:hover {
+  transform: translateY(-4px);
+  background: #fff;
+}
+
+.value-card h3 {
+  color: var(--primary-blue);
+  font-size: 1.3rem;
+  margin-bottom: 0.7rem;
+}
+
+.value-card p {
+  color: var(--text-muted);
+  font-size: 1rem;
+}
+
+/* ---------------------------------------------------------
+   SERVICES PAGE
+--------------------------------------------------------- */
+
+.services-section {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2.5rem;
+}
+
+.service-card {
+  background: var(--soft-grey);
+  padding: 2rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-grey);
+  transition: 0.3s ease;
+  box-shadow: var(--shadow);
+}
+
+.service-card:hover {
+  transform: translateY(-6px);
+  background: #fff;
+}
+
+.service-card h3 {
+  color: var(--primary-blue);
+  font-size: 1.3rem;
+  margin-bottom: 0.8rem;
+}
+
+.service-card p {
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+.service-cta {
+  padding: 4rem 0;
+  text-align: center;
+  background: var(--light-blue);
+  border-top: 1px solid var(--border-grey);
+}
+
+.service-cta h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-blue);
+}
+
+.service-cta p {
+  font-size: 1.1rem;
+  color: var(--text-muted);
+  margin-bottom: 2rem;
+}
+
+.service-cta .cta-btn {
+  background: var(--primary-blue);
+  padding: 1rem 2rem;
+  color: #fff;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.service-cta .cta-btn:hover {
+  background: #1d2180;
+}
+
+/* ---------------------------------------------------------
+   CONTACT PAGE
+--------------------------------------------------------- */
+
+.contact-section {
+  padding: 5rem 0;
+  background: #fff;
+}
+
+.contact-grid {
+  display: flex;
+  gap: 3rem;
+  flex-wrap: wrap;
+}
+
+.contact-info,
+.contact-form {
+  flex: 1;
+}
+
+.contact-info h2,
+.contact-form h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary-blue);
+}
+
+.contact-info p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-dark);
+}
+
+.contact-form form {
+  background: var(--soft-grey);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: var(--radius);
+  border: 1px solid var(--border-grey);
+}
+
+.contact-form input[type="submit"] {
+  background: var(--primary-blue);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.contact-form input[type="submit"]:hover {
+  background: #1d2180;
+}
+
+/* ---------------------------------------------------------
+   RESPONSIVE (Mobile)
+--------------------------------------------------------- */
+
+@media (max-width: 768px) {
+  .page-hero {
+    padding: 4rem 5%;
+  }
+
+  .page-hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .about-grid {
+    flex-direction: column;
+  }
+
+  .contact-grid {
+    flex-direction: column;
+  }
 }

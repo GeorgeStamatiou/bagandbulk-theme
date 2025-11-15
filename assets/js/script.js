@@ -109,3 +109,63 @@ document.addEventListener("DOMContentLoaded", function () {
     setInterval(slideNext, 3500);
 });
 
+/* =========================================
+   MACHINE MODEL SELECTOR
+========================================= */
+
+const models = {
+  packaging: [
+    { name: "Rice Packaging Machine", range: "50 - 500 kg/hr" },
+    { name: "Powder Filling Machine", range: "20 - 200 kg/hr" },
+    { name: "Liquid Packaging Machine", range: "100 - 1000 kg/hr" },
+    { name: "Granule Packaging Machine", range: "30 - 300 kg/hr" }
+  ],
+  mixing: [
+    { name: "Ribbon Blender", range: "50 - 2000 L" },
+    { name: "Vertical Mixer", range: "100 - 5000 L" }
+  ]
+};
+
+const modelGrid = document.getElementById("modelGrid");
+const summaryType = document.getElementById("summaryType");
+const summaryModel = document.getElementById("summaryModel");
+const selectedMachineType = document.getElementById("selectedMachineType");
+const selectedModel = document.getElementById("selectedModel");
+
+// Load default
+loadModels("packaging");
+
+document.querySelectorAll(".tab-btn").forEach(btn => {
+  btn.addEventListener("click", () => {
+    document.querySelector(".tab-btn.active").classList.remove("active");
+    btn.classList.add("active");
+
+    const type = btn.dataset.type;
+    summaryType.textContent = type.charAt(0).toUpperCase() + type.slice(1);
+    selectedMachineType.value = type;
+
+    loadModels(type);
+  });
+});
+
+function loadModels(type) {
+  modelGrid.innerHTML = "";
+  models[type].forEach(m => {
+    let card = document.createElement("div");
+    card.className = "model-card";
+    card.innerHTML = `
+      <h4>${m.name}</h4>
+      <p>${m.range}</p>
+    `;
+    card.onclick = () => {
+      document.querySelectorAll(".model-card").forEach(c => c.classList.remove("active"));
+      card.classList.add("active");
+      summaryModel.textContent = m.name;
+      selectedModel.value = m.name;
+    };
+    modelGrid.appendChild(card);
+  });
+}
+
+
+

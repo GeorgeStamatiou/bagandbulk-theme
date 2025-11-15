@@ -205,7 +205,7 @@ get_header();
       </div>
 
       <div class="info-item">
-        <h3>5 Ways Save Time</hh3>
+        <h3>5 Ways Save Time</h3>
         <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</p>
       </div>
 
