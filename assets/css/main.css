@@ -1,405 +1,510 @@
-body {
-  font-family: "Montserrat", sans-serif;
-  color: #222;
-  background-color: #f8f8f8;
+/* ---------------------------------------------------------
+   GLOBAL VARIABLES (COLORS & SPACING)
+--------------------------------------------------------- */
+
+:root {
+  --primary-blue: #2a2e9a;
+  --light-blue: #eef2ff;
+  --soft-grey: #f8f8f8;
+  --border-grey: #e5e7eb;
+  --text-dark: #222;
+  --text-muted: #555;
+  --accent-orange: #f47b20;
+
+  --radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------------------------------------------------------
+   GLOBAL RESET
+--------------------------------------------------------- */
+
+* {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
-header,
-footer {
-  text-align: center;
-  padding: 2rem;
-  background-color: #fff;
-  border-bottom: 1px solid #ddd;
+body {
+  font-family: "Montserrat", sans-serif;
+  background: #ffffff;
+  color: var(--text-dark);
 }
 
+/* Typography */
 h1,
-h2 {
-  color: #333;
+h2,
+h3,
+h4 {
+  color: var(--primary-blue);
+  font-weight: 700;
 }
 
-.hero {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 4rem 8%;
-  background-color: #fff;
+p {
+  color: var(--text-muted);
+  line-height: 1.6;
 }
 
-.hero-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  flex-wrap: wrap;
+/* ---------------------------------------------------------
+   GLOBAL LAYOUT HELPERS
+--------------------------------------------------------- */
+
+.container {
+  max-width: 1200px;
+  padding: 0 1.5rem;
+  margin: auto;
 }
 
-.hero .text {
-  flex: 1 1 45%;
+.section {
+  padding: 4rem 0;
 }
 
-.hero .text h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
-
-.hero .text p {
-  font-size: 1.1rem;
-  margin-bottom: 1.5rem;
-  color: #555;
-}
-
-.buttons {
-  display: flex;
-  gap: 1rem;
-}
+/* ---------------------------------------------------------
+   BUTTONS
+--------------------------------------------------------- */
 
 .btn {
-  text-decoration: none;
-  padding: 0.8rem 1.6rem;
-  border-radius: 4px;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
   font-weight: 600;
-  transition: 0.3s ease;
-}
-
-.btn.primary {
-  background-color: #111;
-  color: #fff;
-}
-
-.btn.primary:hover {
-  background-color: #333;
-}
-
-.btn.secondary {
-  border: 2px solid #111;
-  color: #111;
-}
-
-.btn.secondary:hover {
-  background-color: #111;
-  color: #fff;
-}
-
-.hero .image {
-  flex: 1 1 45%;
-  text-align: center;
-}
-
-.hero .image img {
-  max-width: 100%;
-  height: auto;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* =========================
-   WHY CHOOSE US SECTION
-========================= */
-.why-choose-us {
-  background-color: #f8f8f8;
-  padding: 4rem 8%;
-}
-
-.why-choose-us .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 3rem;
-}
-
-.why-choose-us .text {
-  flex: 1 1 45%;
-}
-
-.why-choose-us .text h2 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  color: #111;
-}
-
-.why-choose-us .text p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 1rem;
-  line-height: 1.6;
-}
-
-.why-choose-us .text ul {
-  list-style: none;
-  padding: 0;
-}
-
-.why-choose-us .text li {
-  margin-bottom: 0.6rem;
-  font-weight: 500;
-  color: #333;
-}
-
-.why-choose-us .media {
-  flex: 1 1 45%;
-  text-align: center;
-}
-
-.why-choose-us .media img,
-.why-choose-us .media video {
-  max-width: 100%;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* =========================
-   VALUE PROPOSITION SECTION
-========================= */
-.value-proposition {
-  background-color: #fff;
-  padding: 4rem 8%;
-  text-align: center;
-}
-
-.value-proposition h2 {
-  font-size: 2rem;
-  margin-bottom: 2.5rem;
-  color: #111;
-}
-
-.value-proposition .cards {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.value-proposition .card {
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
-  flex: 1 1 280px;
-  max-width: 320px;
-  transition: all 0.3s ease;
-}
-
-.value-proposition .card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.value-proposition .card img {
-  width: 60px;
-  margin-bottom: 1rem;
-}
-
-.value-proposition .card h3 {
-  font-size: 1.25rem;
-  color: #1e1e8f; /* Blue accent like your Figma */
-  margin-bottom: 0.75rem;
-}
-
-.value-proposition .card p {
-  font-size: 1rem;
-  color: #555;
-}
-
-/* =========================
-   USE CASES SECTION
-========================= */
-.use-cases {
-  background-color: #f8f8f8;
-  padding: 4rem 8%;
-}
-
-.use-cases .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 3rem;
-  flex-wrap: wrap;
-}
-
-.use-cases .text {
-  flex: 1 1 45%;
-}
-
-.use-cases .text h2 {
-  font-size: 2rem;
-  color: #111;
-  margin-bottom: 1rem;
-}
-
-.use-cases .text p {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 1.5rem;
-  line-height: 1.6;
-}
-
-.use-cases .buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.use-cases .btn.primary {
-  background-color: #f47b20; /* Orange like in Figma */
-  color: #fff;
-  border: none;
-}
-
-.use-cases .btn.primary:hover {
-  background-color: #e46a10;
-}
-
-.use-cases .btn.secondary {
-  border: 2px solid #111;
-  color: #111;
-}
-
-.use-cases .btn.secondary:hover {
-  background-color: #111;
-  color: #fff;
-}
-
-.use-cases .media {
-  flex: 1 1 45%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.use-cases .video-box {
-  width: 100%;
-  max-width: 500px;
-  aspect-ratio: 16 / 9;
-  background-color: #1e1e8f;
-  border-radius: 10px;
-  position: relative;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  text-decoration: none;
+  display: inline-block;
   cursor: pointer;
-}
-
-.use-cases .play-icon {
-  font-size: 3rem;
-  color: #fff;
-  opacity: 0.9;
   transition: 0.3s;
 }
 
-.use-cases .video-box:hover .play-icon {
-  opacity: 1;
-  transform: scale(1.1);
+.btn-primary {
+  background: var(--accent-orange);
+  color: #fff;
 }
 
-/* =========================
-   OUR MIXING MACHINES SECTION
-========================= */
-.mixing-machines {
-  background-color: #fff;
-  padding: 4rem 8%;
-  text-align: center;
+.btn-primary:hover {
+  background: #e46a10;
 }
 
-.mixing-machines h2 {
-  font-size: 2rem;
-  color: #111;
-  margin-bottom: 0.5rem;
+.btn-secondary {
+  background: #fff;
+  border: 2px solid var(--primary-blue);
+  color: var(--primary-blue);
 }
 
-.mixing-machines .intro {
-  font-size: 1.1rem;
-  color: #555;
-  margin-bottom: 3rem;
+.btn-secondary:hover {
+  background: var(--primary-blue);
+  color: #fff;
 }
 
-.machine-grid {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+/* ---------------------------------------------------------
+   CARDS
+--------------------------------------------------------- */
+
+.card {
+  background: #ffffff;
+  border: 1px solid var(--border-grey);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: var(--shadow);
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* ---------------------------------------------------------
+   GRIDS
+--------------------------------------------------------- */
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   gap: 2rem;
 }
 
-.machine-card {
-  background-color: #fff;
-  border: 1px solid #eee;
-  border-radius: 10px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-  padding: 2rem;
-  max-width: 320px;
-  flex: 1 1 280px;
-  transition: all 0.3s ease;
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
 }
 
-.machine-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+.grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
 }
 
-.machine-card img {
+@media (max-width: 900px) {
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .grid-2,
+  .grid-3,
+  .grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ---------------------------------------------------------
+   HEADER
+--------------------------------------------------------- */
+
+header {
+  background: #ffffff;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid var(--border-grey);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+}
+
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+nav a {
+  color: var(--text-dark);
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+nav a:hover {
+  color: var(--primary-blue);
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+footer {
+  background: var(--primary-blue);
+  color: #fff;
+  padding: 3rem 0;
+}
+
+footer a {
+  color: #fff;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+footer a:hover {
+  opacity: 1;
+}
+
+/* ---------------------------------------------------------
+   HERO SECTION
+--------------------------------------------------------- */
+
+.hero {
+  width: 100%;
+  padding: 5rem 8%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4rem;
+  max-width: 1400px;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.hero-left {
+  flex: 1 1 480px;
+}
+
+.hero-left h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: #222;
+}
+
+.hero-subtext {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  max-width: 600px;
+  color: #444;
+}
+
+.hero-ctas {
+  display: flex;
+  gap: 1.5rem;
+}
+
+/* Buttons */
+.btn-primary {
+  background: #0060df;
+  color: #fff;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: #004bb3;
+}
+
+.btn-secondary {
+  border: 2px solid #0060df;
+  color: #0060df;
+  padding: 0.9rem 1.8rem;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.25s ease;
+}
+
+.btn-secondary:hover {
+  background: #eef5ff;
+}
+
+/* RIGHT IMAGE */
+.hero-right {
+  flex: 1 1 480px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image {
+  width: 100%;
+  max-width: 520px;
+  animation: float 4.5s ease-in-out infinite;
+}
+
+/* simple floating animation */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .hero-container {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .hero-left h1 {
+    font-size: 2.4rem;
+  }
+  .hero-subtext {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-ctas {
+    justify-content: center;
+  }
+}
+
+/* ---------------------------------------------------------
+   WHY CHOOSE US
+--------------------------------------------------------- */
+
+/* WHY CHOOSE US SECTION */
+.why-choose-us-section {
+  background: #ffffff;
+  padding: 80px 0;
+}
+
+.why-choose-us-section .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 40px;
+  padding: 0 20px;
+}
+
+/* LEFT TEXT */
+.why-text {
+  flex: 1;
+  min-width: 300px;
+}
+
+.why-text h2 {
+  font-size: 2.6rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #222;
+}
+
+.why-text .subhead {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 35px;
+  line-height: 1.5;
+}
+
+.feature {
+  margin-bottom: 25px;
+}
+
+.feature h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #111;
+}
+
+.feature p {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* RIGHT DEMO IMAGE */
+.why-demo {
+  flex: 1;
+  min-width: 300px;
+  display: flex;
+  justify-content: center;
+}
+
+.demo-box {
+  background: #f2f4f7;
+  padding: 15px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.07);
+}
+
+.demo-box img {
   width: 100%;
   height: auto;
+  border-radius: 10px;
+}
+
+/* MOBILE */
+@media (max-width: 768px) {
+  .why-text,
+  .why-demo {
+    flex: 100%;
+    text-align: left;
+  }
+}
+
+/* ---------------------------------------------------------
+   VALUE PROPOSITION + USE CASES SECTION
+--------------------------------------------------------- */
+
+.value-usecases {
+  padding: 4rem 8%;
+  background: #fff;
+}
+
+.value-usecases .container {
+  display: flex;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+/* LEFT + RIGHT COLUMNS */
+.value-left,
+.usecases-right {
+  flex: 1;
+}
+
+/* VALUE GRID (4 cards, 2x2) */
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* CARD BASE STYLES (used for all cards incl. rotating card) */
+.value-card,
+.usecase-card {
+  background: #f8f8f8;
+  padding: 1.8rem;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  transition: 0.3s ease;
+  min-height: 420px; /* ENSURED ALL CARDS MATCH HEIGHT */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Hover effect for value cards (not rotating) */
+.value-card:hover {
+  background: #fff;
+  transform: translateY(-4px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+}
+
+/* CARD IMAGES */
+.value-card img,
+.usecase-card img {
+  width: 100%;
+  height: 180px; /* supports 400x260 ratio */
+  object-fit: cover;
+  border-radius: 8px;
   margin-bottom: 1rem;
-  border-radius: 6px;
+}
+
+/* USE CASES COLUMN */
+.usecases-right {
+  margin-top: 0.5rem;
+}
+
+.usecase-card {
+  margin-top: 2rem;
+  transition: opacity 0.4s ease;
+}
+
+/* ---------------------------------------------------------
+   MIXING MACHINES
+--------------------------------------------------------- */
+
+.mixing-machines .intro {
+  max-width: 700px;
+  margin: 0 auto 3rem;
+  color: var(--text-muted);
 }
 
 .machine-card h3 {
-  color: #1e1e8f;
-  font-size: 1.25rem;
-  margin-bottom: 0.5rem;
+  color: var(--primary-blue);
 }
 
-.machine-card p {
-  color: #555;
-  font-size: 1rem;
-  line-height: 1.5;
-}
+/* ---------------------------------------------------------
+   INFO GRID (Pricing / Resource / Interaction)
+--------------------------------------------------------- */
 
-/* =========================
-   PRICING / RESOURCE / INTERACTION GRID
-========================= */
 .info-grid {
-  background-color: #f8f8f8;
-  padding: 4rem 8%;
-}
-
-.info-grid .container {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.grid-column {
-  flex: 1 1 30%;
-  min-width: 280px;
+  background: var(--soft-grey);
 }
 
 .grid-column h2 {
-  font-size: 1.5rem;
-  color: #111;
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid #1e1e8f;
+  border-bottom: 2px solid var(--primary-blue);
   display: inline-block;
-  padding-bottom: 0.3rem;
-}
-
-.info-item {
-  margin-bottom: 1.5rem;
-}
-
-.info-item h3 {
-  font-size: 1.1rem;
-  color: #1e1e8f;
-  margin-bottom: 0.4rem;
-}
-
-.info-item p {
-  font-size: 0.95rem;
-  color: #555;
-  line-height: 1.5;
+  padding-bottom: 0.2rem;
+  margin-bottom: 1rem;
 }
