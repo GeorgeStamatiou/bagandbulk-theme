@@ -20,7 +20,7 @@ add_action('after_setup_theme', 'bagandbulk_theme_setup');
 // ----------------------
 function bagandbulk_enqueue_styles() {
 
-    // Load root style.css (the WordPress required theme stylesheet)
+    // Load root style.css
     wp_enqueue_style(
         'bagandbulk-style',
         get_stylesheet_uri(),
@@ -36,7 +36,7 @@ function bagandbulk_enqueue_styles() {
         null
     );
 
-    // Main custom stylesheet inside /assets/css/main.css
+    // Main custom stylesheet
     wp_enqueue_style(
         'bagandbulk-main',
         get_template_directory_uri() . '/assets/css/main.css',
@@ -53,13 +53,11 @@ add_action('wp_enqueue_scripts', 'bagandbulk_enqueue_styles');
 // ----------------------
 function bagandbulk_enqueue_scripts() {
 
-    echo "<!-- JS ENQUEUE RUNNING -->";
-
     wp_enqueue_script(
         'bagandbulk-script',
         get_template_directory_uri() . '/assets/js/script.js',
         array(),
-        time(), // bust caching
+        time(),
         true
     );
 
